@@ -1,0 +1,41 @@
+{
+  "name": "twee-mongoose-extension",
+  "preferGlobal": false,
+  "version": "0.0.1",
+  "author": {
+    "name": "Dmitri Mesin",
+    "email": "dmitri.mesin@gmail.com"
+  },
+  "homepage": "https://github.com/tweeio/twee-mongoose-extension",
+  "description": "Mongoose ODM Extension for Twee.io Framework - MVC Framework for Node.js based on Express.js",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "*"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tweeio/twee-mongoose-extension.git"
+  },
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "mongoose",
+    "odm",
+    "twee.io",
+    "framework",
+    "extensions",
+    "modules",
+    "route",
+    "web",
+    "middleware",
+    "mvc",
+    "routes",
+    "rest",
+    "restful",
+    "api"
+  ],
+  "bugs": {
+    "url": "https://github.com/tweeio/twee-mongoose-extension/issues"
+  }
+}
