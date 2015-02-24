@@ -70,12 +70,12 @@ Default configuration is following:
 ```
 module.exports.config = {
     "databases": {
-        "test": {
+        "default": {
             "connection": "mongodb://localhost/tweeIoTest",
             "options": {}
         }
     },
-    "defaultDatabase": "test",
+    "defaultDatabase": "default",
     "modelsFolders": "models/mongoose/"
 };
 ```
@@ -90,7 +90,7 @@ But you always able to change these settings in `application/configs/twee.js` fi
             "myBusiness": {
                 "connection": "mongodb://localhost/myBusiness"
             },
-            "anotherBusiness": {
+            "default": {
                 "connection": "mongodb://localhost/anotherBusiness,mongodb://anotherHost.com/anotherBusiness",
                 "options": {
                     // Multi-mongos support
@@ -109,7 +109,7 @@ After that you're able to use these databases like this:
 
 ```
 var Post = twee.get('mongoose').getModel('blog/Post', 'myBusiness');
-var Post = twee.get('mongoose').getModel('blog/Post', 'anotherBusiness');
+var Post = twee.get('mongoose').getModel('blog/Post', 'default');
 ```
 
 Where `blog` - is collection name, if you don't want collection to be named as `Post`, but `blog`.
@@ -120,7 +120,7 @@ Extension will look up the model in all the modules until it find first matched 
 If you need to specify application module to search model in, then simple use this variant:
 
 ```
-var Post = twee.get('mongoose').getModel('Default:blog/Post', 'anotherBusiness');
+var Post = twee.get('mongoose').getModel('Default:blog/Post', 'default');
 ```
 
 It will try to resolve model in `modules/Default/models/mongoose/PostModel.js`
@@ -128,13 +128,13 @@ It will try to resolve model in `modules/Default/models/mongoose/PostModel.js`
 If you don't want to specify custom collection name and you're agree that it will be `Post`, then you can use this format:
 
 ```
-var Post = twee.get('mongoose').getModel('Default:Post', 'anotherBusiness');
+var Post = twee.get('mongoose').getModel('Default:Post', 'default');
 ```
 
 or (to look up model in first matched file):
 
 ```
-var Post = twee.get('mongoose').getModel('Post', 'anotherBusiness');
+var Post = twee.get('mongoose').getModel('Post', 'default');
 ```
 
 If you want to use default database `myBusiness` that has been specified in config, then use this format:
