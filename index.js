@@ -38,14 +38,14 @@ module.exports.extension = function() {
         databases[dbName] = mongoose.createConnection(connectionString, connectionOptions);
 
         databases[dbName].once('open', function (callback) {
-            twee.log('Opened Mongoose DB connection: "' + dbName + '" (' + connectionString + ')');
+            twee.log('Opened Mongoose DB connection');
             if (typeof callback === 'function') {
                 callback();
             }
         });
 
         databases[dbName].on('error', function(error){
-            twee.error('Mongoose DB Connection Error: "' + dbName + '" (' + connectionString + '): ' + error.stack || error.toString());
+            twee.error('Mongoose DB Connection Error: ' + error.stack || error.toString());
         });
     }
 
@@ -209,11 +209,11 @@ module.exports.extension = function() {
 module.exports.configNamespace = 'twee-mongoose';
 module.exports.config = {
     "databases": {
-        "test": {
-            "connection": "mongodb://localhost/tweeIoTest",
+        "default": {
+            "connection": "mongodb://localhost/tweeDefault",
             "options": {}
         }
     },
-    "defaultDatabase": "test",
+    "defaultDatabase": "default",
     "modelsFolders": "models/mongoose/"
 };
