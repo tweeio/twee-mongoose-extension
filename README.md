@@ -71,7 +71,7 @@ Default configuration is following:
 module.exports.config = {
     "databases": {
         "default": {
-            "connection": "mongodb://localhost/tweeIoTest",
+            "connection": "mongodb://localhost/tweeDefault",
             "options": {}
         }
     },
